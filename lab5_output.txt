@@ -1,0 +1,804 @@
+=== ЛАБОРАТОРНАЯ РАБОТА №5 - ИСТОРИЯ ===
+Студент: Новыхин Максим
+Группа: МГКЭиТ 2-ИП 1-11-24
+Дата: 01.11.2024
+GitHub: moyamoyaradost
+Репозиторий: https://github.com/moyamoyaradost/studying-Git
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 1: Полный лог коммитов
+Команда: git log
+
+commit b80fd02aa5476150207aa31a21e3f9b7bbf1f0f8
+Author: novihinm <novihinm@yandex.ru>
+Date:   Wed Oct 8 12:28:52 2025 +0300
+
+    Добавлен отчет по лабораторной работе №4
+
+commit 19624c59778fc8740d02483eb522b55c1d0e7da5
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:57:05 2025 +0300
+
+    Updated hello.html with modifications
+
+commit 121f197b6cf1ac570b4f87e93684911d539c567b
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:50:25 2025 +0300
+
+    First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 2: Лог с детальными изменениями (diff)
+Команда: git log -p --max-count=1
+
+commit b80fd02aa5476150207aa31a21e3f9b7bbf1f0f8
+Author: novihinm <novihinm@yandex.ru>
+Date:   Wed Oct 8 12:28:52 2025 +0300
+
+    Добавлен отчет по лабораторной работе №4
+
+diff --git "a/\320\236\320\242\320\247\320\225\320\242_\320\233\320\2404.md" "b/\320\236\320\242\320\247\320\225\320\242_\320\233\320\2404.md"
+new file mode 100644
+index 0000000..8f3e684
+--- /dev/null
++++ "b/\320\236\320\242\320\247\320\225\320\242_\320\233\320\2404.md"
+@@ -0,0 +1,172 @@
++# Отчет о выполнении лабораторной работы №4
++## "Работа с GitHub"
++
++---
++
++**Студент**: Новихин Максим  
++**GitHub**: moyamoyaradost  
++**Группа**: МГКЭиТ 2-ИП 1-11-24  
++**Дата выполнения**: 8 октября 2025 г.  
++**Репозиторий**: https://github.com/moyamoyaradost/studying-Git
++
++---
++
++## Цель работы
++
++Изучение работы с удаленными репозиториями GitHub, освоение команд для подключения локального репозитория к удаленному и синхронизации изменений.
++
++---
++
++## Выполненные задания
++
++### Задание 1: Создание удаленного репозитория на GitHub
++
++**Действия:**
++- Создан публичный репозиторий `studying-Git` на GitHub
++- Репозиторий создан без README, .gitignore и license
++
++**Результат:**
++```
++✓ Created repository moyamoyaradost/studying-Git on github.com
++  https://github.com/moyamoyaradost/studying-Git
++```
++
++---
++
++### Задание 2: Подключение локального репозитория к удаленному
++
++**Выполненные команды:**
++```bash
++git remote add origin https://github.com/moyamoyaradost/studying-Git.git
++git branch -M main
++git push -u origin main
++```
++
++**Проверка подключения:**
++```bash
++git remote -v
++```
++
++**Результат:**
++```
++origin  https://github.com/moyamoyaradost/studying-Git.git (fetch)
++origin  https://github.com/moyamoyaradost/studying-Git.git (push)
++```
++
++✅ Удаленный репозиторий успешно подключен
++
++---
++
++### Задание 3: Создание и отправка второго коммита
++
++**Содержимое файла hello.html:**
++```html
++<h1>Hello, world!!! Version 3</h1>
++```
++
++**Выполненные команды:**
++```bash
++git add hello.html
++git commit -m "Updated hello.html with modifications"
++git push
++```
++
++**Проверка истории коммитов:**
++```bash
++git log --oneline
++```
++
++**Результат:**
++```
++19624c5 (HEAD -> main, origin/main) Updated hello.html with modifications
++121f197 First Commit
++```
++
++✅ Второй коммит создан и отправлен на GitHub
++
++---
++
++## Проверка выполнения всех требований
++
++### 1. Проверка удаленного репозитория
++```bash
++$ git remote -v
++origin  https://github.com/moyamoyaradost/studying-Git.git (fetch)
++origin  https://github.com/moyamoyaradost/studying-Git.git (push)
++```
++✅ Удаленный репозиторий настроен корректно
++
++### 2. Проверка активной ветки
++```bash
++$ git branch
++* main
++```
++✅ Ветка `main` активна
++
++### 3. Проверка истории коммитов
++```bash
++$ git log --oneline --all --decorate
++19624c5 (HEAD -> main, origin/main) Updated hello.html with modifications
++121f197 First Commit
++```
++✅ Присутствуют 2 коммита, репозиторий синхронизирован с удаленной веткой
++
++### 4. Проверка синхронизации
++```bash
++$ git branch -a
++* main
++  remotes/origin/main
++```
++✅ Локальная ветка `main` отслеживает удаленную ветку `origin/main`
++
++### 5. Проверка статуса
++```bash
++$ git status
++On branch main
++nothing to commit, working tree clean
++```
++✅ Рабочая директория чистая, все изменения закоммичены и отправлены
++
++---
++
++## Структура репозитория
++
++```
++studying-Git/
++├── hello.html          # Основной файл с содержимым "Hello, world!!!"
++└── ОТЧЕТ_ЛР4.md       # Данный отчет
++```
++
++---
++
++## Выводы
++
++В ходе выполнения лабораторной работы №4 были освоены следующие навыки:
++
++1. **Создание удаленного репозитория** на платформе GitHub
++2. **Подключение локального репозитория** к удаленному с помощью команды `git remote add`
++3. **Синхронизация изменений** между локальным и удаленным репозиторием с помощью команд `git push` и `git pull`
++4. **Работа с ветками**: настройка отслеживания удаленной ветки
++5. **Проверка состояния репозитория** с помощью команд `git remote -v`, `git branch`, `git log`
++
++Все требования лабораторной работы выполнены успешно. Репозиторий доступен по адресу: https://github.com/moyamoyaradost/studying-Git
++
++---
++
++## Использованные команды Git
++
++| Команда | Назначение |
++|---------|------------|
++| `git remote add origin <URL>` | Подключение удаленного репозитория |
++| `git remote -v` | Просмотр списка удаленных репозиториев |
++| `git branch -M main` | Переименование текущей ветки в `main` |
++| `git push -u origin main` | Отправка изменений и установка отслеживания ветки |
++| `git push` | Отправка коммитов на удаленный сервер |
++| `git log --oneline` | Просмотр истории коммитов в сокращенном виде |
++| `git branch -a` | Просмотр всех веток (локальных и удаленных) |
++| `git status` | Проверка состояния рабочей директории |
++
++---
++
++**Подпись студента**: Новихин Максим  
++**Дата**: 8 октября 2025 г.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 3: Короткий вид истории (oneline)
+Команда: git log --oneline
+
+b80fd02 Добавлен отчет по лабораторной работе №4
+19624c5 Updated hello.html with modifications
+121f197 First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 4: Коммиты автора: novihinm
+Команда: git log --author='novihinm'
+
+commit b80fd02aa5476150207aa31a21e3f9b7bbf1f0f8
+Author: novihinm <novihinm@yandex.ru>
+Date:   Wed Oct 8 12:28:52 2025 +0300
+
+    Добавлен отчет по лабораторной работе №4
+
+commit 19624c59778fc8740d02483eb522b55c1d0e7da5
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:57:05 2025 +0300
+
+    Updated hello.html with modifications
+
+commit 121f197b6cf1ac570b4f87e93684911d539c567b
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:50:25 2025 +0300
+
+    First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 5a: График текущей ветки
+Команда: git log --graph --oneline
+
+* b80fd02 Добавлен отчет по лабораторной работе №4
+* 19624c5 Updated hello.html with modifications
+* 121f197 First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 5b: График с декорациями
+Команда: git log --graph --oneline --decorate
+
+* b80fd02 (HEAD -> main, origin/main) Добавлен отчет по лабораторной работе №4
+* 19624c5 Updated hello.html with modifications
+* 121f197 First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 5c: График всех веток
+Команда: git log --all --graph --oneline --decorate
+
+* b80fd02 (HEAD -> main, origin/main) Добавлен отчет по лабораторной работе №4
+* 19624c5 Updated hello.html with modifications
+* 121f197 First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 6: Последние 2 коммита
+Команда: git log -n 2
+
+commit b80fd02aa5476150207aa31a21e3f9b7bbf1f0f8
+Author: novihinm <novihinm@yandex.ru>
+Date:   Wed Oct 8 12:28:52 2025 +0300
+
+    Добавлен отчет по лабораторной работе №4
+
+commit 19624c59778fc8740d02483eb522b55c1d0e7da5
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:57:05 2025 +0300
+
+    Updated hello.html with modifications
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 7: Поиск по сообщению 'commit'
+Команда: git log --grep='commit' -i
+
+commit 121f197b6cf1ac570b4f87e93684911d539c567b
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:50:25 2025 +0300
+
+    First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 8: Коммиты за последний месяц
+Команда: git log --since=1.month.ago
+
+commit b80fd02aa5476150207aa31a21e3f9b7bbf1f0f8
+Author: novihinm <novihinm@yandex.ru>
+Date:   Wed Oct 8 12:28:52 2025 +0300
+
+    Добавлен отчет по лабораторной работе №4
+
+commit 19624c59778fc8740d02483eb522b55c1d0e7da5
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:57:05 2025 +0300
+
+    Updated hello.html with modifications
+
+commit 121f197b6cf1ac570b4f87e93684911d539c567b
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:50:25 2025 +0300
+
+    First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 9: Автор + дата (последний месяц)
+Команда: git log --author='novihinm' --since=1.month.ago --oneline
+
+b80fd02 Добавлен отчет по лабораторной работе №4
+19624c5 Updated hello.html with modifications
+121f197 First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 10a: Изменения с последнего коммита
+Команда: git diff HEAD
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 10b: Изменения с предпоследнего коммита
+Команда: git diff HEAD^
+
+diff --git "a/\320\236\320\242\320\247\320\225\320\242_\320\233\320\2404.md" "b/\320\236\320\242\320\247\320\225\320\242_\320\233\320\2404.md"
+new file mode 100644
+index 0000000..8f3e684
+--- /dev/null
++++ "b/\320\236\320\242\320\247\320\225\320\242_\320\233\320\2404.md"
+@@ -0,0 +1,172 @@
++# Отчет о выполнении лабораторной работы №4
++## "Работа с GitHub"
++
++---
++
++**Студент**: Новихин Максим  
++**GitHub**: moyamoyaradost  
++**Группа**: МГКЭиТ 2-ИП 1-11-24  
++**Дата выполнения**: 8 октября 2025 г.  
++**Репозиторий**: https://github.com/moyamoyaradost/studying-Git
++
++---
++
++## Цель работы
++
++Изучение работы с удаленными репозиториями GitHub, освоение команд для подключения локального репозитория к удаленному и синхронизации изменений.
++
++---
++
++## Выполненные задания
++
++### Задание 1: Создание удаленного репозитория на GitHub
++
++**Действия:**
++- Создан публичный репозиторий `studying-Git` на GitHub
++- Репозиторий создан без README, .gitignore и license
++
++**Результат:**
++```
++✓ Created repository moyamoyaradost/studying-Git on github.com
++  https://github.com/moyamoyaradost/studying-Git
++```
++
++---
++
++### Задание 2: Подключение локального репозитория к удаленному
++
++**Выполненные команды:**
++```bash
++git remote add origin https://github.com/moyamoyaradost/studying-Git.git
++git branch -M main
++git push -u origin main
++```
++
++**Проверка подключения:**
++```bash
++git remote -v
++```
++
++**Результат:**
++```
++origin  https://github.com/moyamoyaradost/studying-Git.git (fetch)
++origin  https://github.com/moyamoyaradost/studying-Git.git (push)
++```
++
++✅ Удаленный репозиторий успешно подключен
++
++---
++
++### Задание 3: Создание и отправка второго коммита
++
++**Содержимое файла hello.html:**
++```html
++<h1>Hello, world!!! Version 3</h1>
++```
++
++**Выполненные команды:**
++```bash
++git add hello.html
++git commit -m "Updated hello.html with modifications"
++git push
++```
++
++**Проверка истории коммитов:**
++```bash
++git log --oneline
++```
++
++**Результат:**
++```
++19624c5 (HEAD -> main, origin/main) Updated hello.html with modifications
++121f197 First Commit
++```
++
++✅ Второй коммит создан и отправлен на GitHub
++
++---
++
++## Проверка выполнения всех требований
++
++### 1. Проверка удаленного репозитория
++```bash
++$ git remote -v
++origin  https://github.com/moyamoyaradost/studying-Git.git (fetch)
++origin  https://github.com/moyamoyaradost/studying-Git.git (push)
++```
++✅ Удаленный репозиторий настроен корректно
++
++### 2. Проверка активной ветки
++```bash
++$ git branch
++* main
++```
++✅ Ветка `main` активна
++
++### 3. Проверка истории коммитов
++```bash
++$ git log --oneline --all --decorate
++19624c5 (HEAD -> main, origin/main) Updated hello.html with modifications
++121f197 First Commit
++```
++✅ Присутствуют 2 коммита, репозиторий синхронизирован с удаленной веткой
++
++### 4. Проверка синхронизации
++```bash
++$ git branch -a
++* main
++  remotes/origin/main
++```
++✅ Локальная ветка `main` отслеживает удаленную ветку `origin/main`
++
++### 5. Проверка статуса
++```bash
++$ git status
++On branch main
++nothing to commit, working tree clean
++```
++✅ Рабочая директория чистая, все изменения закоммичены и отправлены
++
++---
++
++## Структура репозитория
++
++```
++studying-Git/
++├── hello.html          # Основной файл с содержимым "Hello, world!!!"
++└── ОТЧЕТ_ЛР4.md       # Данный отчет
++```
++
++---
++
++## Выводы
++
++В ходе выполнения лабораторной работы №4 были освоены следующие навыки:
++
++1. **Создание удаленного репозитория** на платформе GitHub
++2. **Подключение локального репозитория** к удаленному с помощью команды `git remote add`
++3. **Синхронизация изменений** между локальным и удаленным репозиторием с помощью команд `git push` и `git pull`
++4. **Работа с ветками**: настройка отслеживания удаленной ветки
++5. **Проверка состояния репозитория** с помощью команд `git remote -v`, `git branch`, `git log`
++
++Все требования лабораторной работы выполнены успешно. Репозиторий доступен по адресу: https://github.com/moyamoyaradost/studying-Git
++
++---
++
++## Использованные команды Git
++
++| Команда | Назначение |
++|---------|------------|
++| `git remote add origin <URL>` | Подключение удаленного репозитория |
++| `git remote -v` | Просмотр списка удаленных репозиториев |
++| `git branch -M main` | Переименование текущей ветки в `main` |
++| `git push -u origin main` | Отправка изменений и установка отслеживания ветки |
++| `git push` | Отправка коммитов на удаленный сервер |
++| `git log --oneline` | Просмотр истории коммитов в сокращенном виде |
++| `git branch -a` | Просмотр всех веток (локальных и удаленных) |
++| `git status` | Проверка состояния рабочей директории |
++
++---
++
++**Подпись студента**: Новихин Максим  
++**Дата**: 8 октября 2025 г.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 10c: Статистика изменений
+Команда: git diff --stat HEAD^
+
+ ...2\320\247\320\225\320\242_\320\233\320\2404.md" | 172 +++++++++++++++++++++
+ 1 file changed, 172 insertions(+)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 10d: Авторы строк в hello.html
+Команда: git blame hello.html
+
+19624c59 (novihinm 2025-09-30 23:57:05 +0300 1) <h1>Hello, world!!! Version 3</h1>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 11a: История с переименованиями
+Команда: git log --follow hello.html
+
+commit 19624c59778fc8740d02483eb522b55c1d0e7da5
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:57:05 2025 +0300
+
+    Updated hello.html with modifications
+
+commit 121f197b6cf1ac570b4f87e93684911d539c567b
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:50:25 2025 +0300
+
+    First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 11b: Формат: одна строка на коммит
+Команда: git log --pretty=oneline
+
+b80fd02aa5476150207aa31a21e3f9b7bbf1f0f8 Добавлен отчет по лабораторной работе №4
+19624c59778fc8740d02483eb522b55c1d0e7da5 Updated hello.html with modifications
+121f197b6cf1ac570b4f87e93684911d539c567b First Commit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 11c: Кастомный формат с графом
+Команда: git log --pretty=format:'%h %s' --graph
+
+* b80fd02 Добавлен отчет по лабораторной работе №4
+* 19624c5 Updated hello.html with modifications
+* 121f197 First Commit
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 11d: Коммиты за последнюю неделю
+Команда: git log --author='novihinm' --after={1.week.ago} --pretty=oneline --abbrev-commit
+
+b80fd02 Добавлен отчет по лабораторной работе №4
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 11e: Детали последнего коммита
+Команда: git show HEAD
+
+commit b80fd02aa5476150207aa31a21e3f9b7bbf1f0f8
+Author: novihinm <novihinm@yandex.ru>
+Date:   Wed Oct 8 12:28:52 2025 +0300
+
+    Добавлен отчет по лабораторной работе №4
+
+diff --git "a/\320\236\320\242\320\247\320\225\320\242_\320\233\320\2404.md" "b/\320\236\320\242\320\247\320\225\320\242_\320\233\320\2404.md"
+new file mode 100644
+index 0000000..8f3e684
+--- /dev/null
++++ "b/\320\236\320\242\320\247\320\225\320\242_\320\233\320\2404.md"
+@@ -0,0 +1,172 @@
++# Отчет о выполнении лабораторной работы №4
++## "Работа с GitHub"
++
++---
++
++**Студент**: Новихин Максим  
++**GitHub**: moyamoyaradost  
++**Группа**: МГКЭиТ 2-ИП 1-11-24  
++**Дата выполнения**: 8 октября 2025 г.  
++**Репозиторий**: https://github.com/moyamoyaradost/studying-Git
++
++---
++
++## Цель работы
++
++Изучение работы с удаленными репозиториями GitHub, освоение команд для подключения локального репозитория к удаленному и синхронизации изменений.
++
++---
++
++## Выполненные задания
++
++### Задание 1: Создание удаленного репозитория на GitHub
++
++**Действия:**
++- Создан публичный репозиторий `studying-Git` на GitHub
++- Репозиторий создан без README, .gitignore и license
++
++**Результат:**
++```
++✓ Created repository moyamoyaradost/studying-Git on github.com
++  https://github.com/moyamoyaradost/studying-Git
++```
++
++---
++
++### Задание 2: Подключение локального репозитория к удаленному
++
++**Выполненные команды:**
++```bash
++git remote add origin https://github.com/moyamoyaradost/studying-Git.git
++git branch -M main
++git push -u origin main
++```
++
++**Проверка подключения:**
++```bash
++git remote -v
++```
++
++**Результат:**
++```
++origin  https://github.com/moyamoyaradost/studying-Git.git (fetch)
++origin  https://github.com/moyamoyaradost/studying-Git.git (push)
++```
++
++✅ Удаленный репозиторий успешно подключен
++
++---
++
++### Задание 3: Создание и отправка второго коммита
++
++**Содержимое файла hello.html:**
++```html
++<h1>Hello, world!!! Version 3</h1>
++```
++
++**Выполненные команды:**
++```bash
++git add hello.html
++git commit -m "Updated hello.html with modifications"
++git push
++```
++
++**Проверка истории коммитов:**
++```bash
++git log --oneline
++```
++
++**Результат:**
++```
++19624c5 (HEAD -> main, origin/main) Updated hello.html with modifications
++121f197 First Commit
++```
++
++✅ Второй коммит создан и отправлен на GitHub
++
++---
++
++## Проверка выполнения всех требований
++
++### 1. Проверка удаленного репозитория
++```bash
++$ git remote -v
++origin  https://github.com/moyamoyaradost/studying-Git.git (fetch)
++origin  https://github.com/moyamoyaradost/studying-Git.git (push)
++```
++✅ Удаленный репозиторий настроен корректно
++
++### 2. Проверка активной ветки
++```bash
++$ git branch
++* main
++```
++✅ Ветка `main` активна
++
++### 3. Проверка истории коммитов
++```bash
++$ git log --oneline --all --decorate
++19624c5 (HEAD -> main, origin/main) Updated hello.html with modifications
++121f197 First Commit
++```
++✅ Присутствуют 2 коммита, репозиторий синхронизирован с удаленной веткой
++
++### 4. Проверка синхронизации
++```bash
++$ git branch -a
++* main
++  remotes/origin/main
++```
++✅ Локальная ветка `main` отслеживает удаленную ветку `origin/main`
++
++### 5. Проверка статуса
++```bash
++$ git status
++On branch main
++nothing to commit, working tree clean
++```
++✅ Рабочая директория чистая, все изменения закоммичены и отправлены
++
++---
++
++## Структура репозитория
++
++```
++studying-Git/
++├── hello.html          # Основной файл с содержимым "Hello, world!!!"
++└── ОТЧЕТ_ЛР4.md       # Данный отчет
++```
++
++---
++
++## Выводы
++
++В ходе выполнения лабораторной работы №4 были освоены следующие навыки:
++
++1. **Создание удаленного репозитория** на платформе GitHub
++2. **Подключение локального репозитория** к удаленному с помощью команды `git remote add`
++3. **Синхронизация изменений** между локальным и удаленным репозиторием с помощью команд `git push` и `git pull`
++4. **Работа с ветками**: настройка отслеживания удаленной ветки
++5. **Проверка состояния репозитория** с помощью команд `git remote -v`, `git branch`, `git log`
++
++Все требования лабораторной работы выполнены успешно. Репозиторий доступен по адресу: https://github.com/moyamoyaradost/studying-Git
++
++---
++
++## Использованные команды Git
++
++| Команда | Назначение |
++|---------|------------|
++| `git remote add origin <URL>` | Подключение удаленного репозитория |
++| `git remote -v` | Просмотр списка удаленных репозиториев |
++| `git branch -M main` | Переименование текущей ветки в `main` |
++| `git push -u origin main` | Отправка изменений и установка отслеживания ветки |
++| `git push` | Отправка коммитов на удаленный сервер |
++| `git log --oneline` | Просмотр истории коммитов в сокращенном виде |
++| `git branch -a` | Просмотр всех веток (локальных и удаленных) |
++| `git status` | Проверка состояния рабочей директории |
++
++---
++
++**Подпись студента**: Новихин Максим  
++**Дата**: 8 октября 2025 г.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 11f: Файл hello.html в ветке main
+Команда: git show main:hello.html
+
+<h1>Hello, world!!! Version 3</h1>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 11g: Статистика всех коммитов
+Команда: git log --stat
+
+commit b80fd02aa5476150207aa31a21e3f9b7bbf1f0f8
+Author: novihinm <novihinm@yandex.ru>
+Date:   Wed Oct 8 12:28:52 2025 +0300
+
+    Добавлен отчет по лабораторной работе №4
+
+ ...2\320\247\320\225\320\242_\320\233\320\2404.md" | 172 +++++++++++++++++++++
+ 1 file changed, 172 insertions(+)
+
+commit 19624c59778fc8740d02483eb522b55c1d0e7da5
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:57:05 2025 +0300
+
+    Updated hello.html with modifications
+
+ hello.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 121f197b6cf1ac570b4f87e93684911d539c567b
+Author: novihinm <novihinm@yandex.ru>
+Date:   Tue Sep 30 23:50:25 2025 +0300
+
+    First Commit
+
+ hello.html | 1 +
+ 1 file changed, 1 insertion(+)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Пункт 11h: Поиск изменений со строкой 'Hello'
+Команда: git log -S 'Hello' --oneline
+
+b80fd02 Добавлен отчет по лабораторной работе №4
+121f197 First Commit
+
+
+════════════════════════════════════════════════════
+ЛАБОРАТОРНАЯ РАБОТА №5 ЗАВЕРШЕНА УСПЕШНО
+Результаты сохранены: Wed Oct  8 12:35:50 MSK 2025
+════════════════════════════════════════════════════
