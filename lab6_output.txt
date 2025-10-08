@@ -1,0 +1,90 @@
+========================================
+#### 1. Создание ветки feature
+========================================
+
+Команда: git branch feature
+Описание: Создает новую ветку feature
+Результат: Ветка создана успешно
+
+Switched to branch 'feature'
+Команда: git checkout feature
+Описание: Переключается на ветку feature
+Результат: Переключение выполнено
+
+* feature
+  main
+========================================
+#### 2. Просмотр веток
+========================================
+
+* feature
+  main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+Команда: git branch -a
+Описание: Показывает все ветки (локальные и удаленные)
+
+* feature 318a96c Добавлен детальный отчет по лабораторной работе №5
+  main    318a96c Добавлен детальный отчет по лабораторной работе №5
+Команда: git branch -v
+Описание: Показывает ветки с последними коммитами
+
+========================================
+#### 3. Создание коммита в ветке feature
+========================================
+
+[feature 64bd55a] Add feature implementation
+ 1 file changed, 3 insertions(+)
+ create mode 100644 feature.txt
+Команда: git commit -m 'Add feature implementation'
+Описание: Создает коммит с новой функциональностью
+Результат: Коммит создан в ветке feature
+
+========================================
+#### 4. Создание ветки bugfix
+========================================
+
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+Switched to a new branch 'bugfix'
+Команда: git checkout -b bugfix
+Описание: Создает и переключается на ветку bugfix одной командой
+Результат: Новая ветка bugfix создана
+
+========================================
+#### 5. Создание коммита в ветке bugfix
+========================================
+
+[bugfix 152a96e] Fix critical bug
+ 1 file changed, 3 insertions(+)
+ create mode 100644 bugfix.txt
+Команда: git commit -m 'Fix critical bug'
+Описание: Коммит с исправлением бага
+
+========================================
+#### 6. Слияние ветки bugfix в main
+========================================
+
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+Updating 318a96c..152a96e
+Fast-forward
+ bugfix.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 bugfix.txt
+Команда: git merge bugfix
+Описание: Сливает изменения из ветки bugfix в main
+Результат: Слияние выполнено успешно (fast-forward)
+
+========================================
+#### 7. Слияние ветки feature в main
+========================================
+
+Merge made by the 'ort' strategy.
+ feature.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 feature.txt
+Команда: git merge feature
+Описание: Сливает изменения из ветки feature в main
+Результат: Создан merge commit
+
